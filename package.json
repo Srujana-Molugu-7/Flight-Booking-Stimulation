@@ -1,0 +1,21 @@
+{
+  "name": "skyvoyage-flight-booking",
+  "version": "1.0.0",
+  "description": "A modern flight booking simulation website with vanilla HTML, CSS, and JavaScript",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "flight-booking",
+    "simulation",
+    "vanilla-javascript",
+    "animations"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

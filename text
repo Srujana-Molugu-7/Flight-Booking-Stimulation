@@ -1,0 +1,88 @@
+1.How to design backend components
+2. DataBase Schema and Relationships
+3.Rest API endpoints
+4.Request/Response design Using FastAPI
+
+-------------------------------------
+Flight booking App Simulator --
+
+User Flow---
+1.Search for available flights.
+2.View the flight details.
+3.Book a seat 
+4.Get Booking confirmation. 
+
+-----------------------------
+components -- 
+1.User Service ->MANAGE USER DATA 
+2.FLIGHT SERVICE  --> Stores flights,routes, schedules 
+3. Booking Service --> handles bookings,seat selection
+
+
+-------------
+User Service -- 
+1.User can create Account. -- >> id,,name,email,mobileno., etc... routes -- >> signup route/signin 
+2.User can login into the application -->>  (Authentication Logic) --->>   
+3, User can logout -->>  (Authentication Logic) -->> 
+
+Flight Services -- 
+
+1. Id, airline, source , destination,departure_time,arrival time, price
+2. Routes -->> filter --  search by destination/source, timerange >> allflights/destination= ? source= ? timerange=? 
+3. Bookings -->> id/PNR ,userID,flight_id,seat_no, status >> routes >> /makebooking >>  /view_booking >> /cancelbooking >> /view/:id
+
+Relationships >> 
+
+User (1) --->> (*) Bookings (*) --- >> (1) Flight
+
+----------------------------------------------------------
+API Design -- 
+//seaarch flight
+@app.get("/flights)
+def search_flights(source:str,destination:str):
+    return { "flights":[{},{}]}
+
+---------
+User Registration -- 
+
+class User(BaseModel):
+    id:str
+    name:str
+    email:str
+
+users = []
+
+@app.post("/users)
+def create_user(user:User)
+    users.append(user)
+    return {"message":"User Created Successfully,"user":user}
+
+--------------------------
+//booking API --
+
+class Booking(BaseModel):
+    user_id:str
+    flight_id:str
+    seat_no:str
+    bookingdate:str
+
+bookings:[]
+@app.post("/bookings")
+def create_booking(booking:Booking):
+    bookings.append(booking)
+    return {"message":"Booking Confirmed","boooking":booking}
+
+----------------
+Flight Details ---- 
+
+
+
+------------------------------------------------------------------------
+ARCHITECHTURAL CONCEPTS----- 
+1.LAyered ARCHITECTURE:
+API LAYER --- >> SERVICE LAYER --- DB LAYER
+2.CACHING:  REDIS --- >> STORE USERINFO/SESSION INFO >> STORE FREQUENTLY SEARCHED ROUTES -- 
+3.SCALABILITY: SEPARATE BOOKING SERVICE AS MICROSERVICE ----- 
+4.CONCURRENCY: PREVENT DOUBLE BOOKING..
+
+uvicorn main:app --reload

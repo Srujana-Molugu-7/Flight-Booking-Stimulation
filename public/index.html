@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyVoyage - Flight Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-plane-departure"></i>
+                <span>SkyFly</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#flights">Flights</a></li>
+                <li><a href="#booking">Book Now</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Animated Background -->
+    <section id="home" class="hero">
+        <!-- Animated Clouds -->
+        <div class="clouds-container">
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+            <div class="cloud cloud-4"></div>
+            <div class="cloud cloud-5"></div>
+        </div>
+        
+        <!-- Animated Airplane -->
+        <div class="airplane-container">
+            <div class="airplane">
+                <i class="fas fa-plane"></i>
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">Explore the World</h1>
+            <p class="hero-subtitle">Book your next adventure with ease and discover amazing destinations around the globe</p>
+            <a href="#flights" class="btn btn-primary hero-btn">
+                <span>Find Flights</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        
+        <!-- Wave Animation -->
+        <div class="wave-container">
+            <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,40 C480,120 960,0 1440,80 L1440,120 L0,120 Z" fill="white"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Flight Search Section -->
+    <section id="search" class="search-section">
+        <div class="container">
+            <div class="search-card">
+                <h2 class="section-title">Search Flights</h2>
+                <form id="search-form" class="search-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="from"><i class="fas fa-plane-departure"></i> From</label>
+                            <select id="from" name="from" required>
+                                <option value="">Select Origin</option>
+                                <option value="NYC">New York (JFK)</option>
+                                <option value="LAX">Los Angeles (LAX)</option>
+                                <option value="CHI">Chicago (ORD)</option>
+                                <option value="MIA">Miami (MIA)</option>
+                                <option value="SFO">San Francisco (SFO)</option>
+                                <option value="LDN">London (LHR)</option>
+                                <option value="PAR">Paris (CDG)</option>
+                                <option value="TKY">Tokyo (NRT)</option>
+                                <option value="DXB">Dubai (DXB)</option>
+                                <option value="SYD">Sydney (SYD)</option>
+                            </select>
+                        </div>
+                        <button type="button" class="swap-btn" aria-label="Swap locations">
+                            <i class="fas fa-exchange-alt"></i>
+                        </button>
+                        <div class="form-group">
+                            <label for="to"><i class="fas fa-plane-arrival"></i> To</label>
+                            <select id="to" name="to" required>
+                                <option value="">Select Destination</option>
+                                <option value="NYC">New York (JFK)</option>
+                                <option value="LAX">Los Angeles (LAX)</option>
+                                <option value="CHI">Chicago (ORD)</option>
+                                <option value="MIA">Miami (MIA)</option>
+                                <option value="SFO">San Francisco (SFO)</option>
+                                <option value="LDN">London (LHR)</option>
+                                <option value="PAR">Paris (CDG)</option>
+                                <option value="TKY">Tokyo (NRT)</option>
+                                <option value="DXB">Dubai (DXB)</option>
+                                <option value="SYD">Sydney (SYD)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date"><i class="fas fa-calendar-alt"></i> Departure Date</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="passengers"><i class="fas fa-users"></i> Passengers</label>
+                            <select id="passengers" name="passengers" required>
+                                <option value="1">1 Passenger</option>
+                                <option value="2">2 Passengers</option>
+                                <option value="3">3 Passengers</option>
+                                <option value="4">4 Passengers</option>
+                                <option value="5">5 Passengers</option>
+                                <option value="6">6 Passengers</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="class"><i class="fas fa-gem"></i> Class</label>
+                            <select id="class" name="class">
+                                <option value="economy">Economy</option>
+                                <option value="business">Business</option>
+                                <option value="first">First Class</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary search-btn">
+                        <i class="fas fa-search"></i>
+                        <span>Search Flights</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Available Flights Section -->
+    <section id="flights" class="flights-section">
+        <div class="container">
+            <h2 class="section-title">Available Flights</h2>
+            <p class="section-subtitle">Choose from our selection of flights to popular destinations</p>
+            
+            <div id="flights-container" class="flights-grid">
+                <!-- Flight cards will be dynamically inserted here -->
+            </div>
+            
+            <div id="no-flights" class="no-flights hidden">
+                <i class="fas fa-plane-slash"></i>
+                <p>No flights found for your search criteria. Please try different options.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking-section">
+        <div class="container">
+            <div class="booking-card">
+                <h2 class="section-title">Book Your Flight</h2>
+                <p class="section-subtitle">Fill in your details to complete the booking</p>
+                
+                <form id="booking-form" class="booking-form">
+                    <!-- Selected Flight Display -->
+                    <div id="selected-flight-display" class="selected-flight hidden">
+                        <div class="selected-flight-header">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Selected Flight</span>
+                        </div>
+                        <div id="selected-flight-info"></div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3><i class="fas fa-user"></i> Account Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3><i class="fas fa-users"></i> Passenger Details</h3>
+                        <div id="passengers-container">
+                            <div class="passenger-form" data-passenger="1">
+                                <div class="passenger-header">
+                                    <span>Passenger 1</span>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="passenger-first-1">First Name</label>
+                                        <input type="text" id="passenger-first-1" name="passenger-first-1" placeholder="First name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="passenger-last-1">Last Name</label>
+                                        <input type="text" id="passenger-last-1" name="passenger-last-1" placeholder="Last name" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3><i class="fas fa-chair"></i> Seat Selection</h3>
+                        <div class="seat-selection">
+                            <div class="seat-map" id="seat-map">
+                                <!-- Seats will be dynamically generated -->
+                            </div>
+                            <div class="seat-legend">
+                                <div class="legend-item">
+                                    <div class="seat-demo available"></div>
+                                    <span>Available</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="seat-demo selected"></div>
+                                    <span>Selected</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="seat-demo occupied"></div>
+                                    <span>Occupied</span>
+                                </div>
+                            </div>
+                            <div id="selected-seats-display" class="selected-seats-display">
+                                <span>Selected Seats: </span>
+                                <span id="selected-seats-list">None</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3><i class="fas fa-receipt"></i> Booking Summary</h3>
+                        <div id="booking-summary" class="booking-summary">
+                            <div class="summary-row">
+                                <span>Flight</span>
+                                <span id="summary-flight">--</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Passengers</span>
+                                <span id="summary-passengers">--</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Seats</span>
+                                <span id="summary-seats">--</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total Price</span>
+                                <span id="summary-total">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary book-btn" id="book-btn" disabled>
+                        <i class="fas fa-check"></i>
+                        <span>Complete Booking</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Confirmation Modal -->
+    <div id="confirmation-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-icon success">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2>Booking Confirmed!</h2>
+            <p>Your flight has been successfully booked.</p>
+            <div id="confirmation-details" class="confirmation-details"></div>
+            <button class="btn btn-primary" onclick="closeModal()">
+                <span>Done</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose SkyFly?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Best Prices</h3>
+                    <p>We offer competitive prices on all flights with no hidden fees</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Our customer support team is available around the clock</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure Booking</h3>
+                    <p>Your data is protected with industry-leading security</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Fast & Easy</h3>
+                    <p>Book your flights in just a few clicks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-plane-departure"></i>
+                        <span>SkyFly</span>
+                    </div>
+                    <p>Your trusted partner for flight bookings worldwide.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#flights">Flights</a></li>
+                        <li><a href="#booking">Book Now</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> support@skyFly.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SkyFly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
